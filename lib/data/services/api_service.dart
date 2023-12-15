@@ -35,9 +35,10 @@ class ApiService {
   Future<Response> postData(Map<String, dynamic> data,String query) async {
     try {
       final response = await _dio.post('$baseUrl$query', data: data);
-      print("post data : ${response.statusCode}  $response");
+
       //return response;
       if (response.statusCode == 201) {
+        print("post data : ${response.statusCode}  $response");
         return response; // If successful, return the response data (List of dynamic).
       } else {
         // If the response status code is not 200, throw an exception with an error message.

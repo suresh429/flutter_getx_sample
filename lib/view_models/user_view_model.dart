@@ -25,6 +25,8 @@ class UserViewModel extends GetxController {
   String get errorMessage =>
       _errorMessage; // Getter method to access the error message.
 
+  RxBool isLoggedIn = false.obs;
+
   @override
   void onInit() {
     super.onInit();
@@ -63,18 +65,19 @@ class UserViewModel extends GetxController {
   }
 
 // Function to make a post request
-  Future<void> postData() async {
+  Future<void> postData(String title,String description) async {
     _loading = true;
 
     try {
-      await _userRepository.postData({
+      final response = await _userRepository.postData({
         // Your data for the POST request
         "userId": 1,
         "id": 1,
-        "title": "title test",
-        "body": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit"
+        "title": title,
+        "body": description
       });
 
+      isLoggedIn.value = true;
       // Handle the response as needed
     } catch (error) {
       // Handle the error

@@ -1,5 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_getx_sample/mvvm/res/getx_loclization/languages.dart';
+import 'package:flutter_getx_sample/mvvm/res/routes/routes.dart';
 import 'package:flutter_getx_sample/view/user_list_screen.dart';
 import 'package:get/get.dart';
 
@@ -8,10 +10,10 @@ import 'data/services/api_service.dart';
 import 'view_models/user_view_model.dart';
 
 void main() {
-  // Initialize GetX dependency injection
+ /* // Initialize GetX dependency injection
   Get.put(ApiService(dio: Dio())); // ApiService instance
   Get.put(Repository()); // UserRepository instance
-  Get.put(UserViewModel()); // UserViewModel instance
+  Get.put(UserViewModel()); // UserViewModel instance*/
   runApp(const MyApp());
 }
 
@@ -24,11 +26,14 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
+      translations: Languages(),
+      locale: const Locale('en' ,'US'),
+      fallbackLocale: const Locale('en' ,'US'),
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: false,
       ),
-      home: const UserList(),
+      getPages: AppRoutes.appRoutes(),
     );
   }
 }

@@ -33,7 +33,7 @@ class UserList extends StatelessWidget {
 
                         return ListTile(
                           onTap: (){
-                            Get.to(const PostList());
+                            Get.to(() => const PostList());
                           },
                           title: Text(user.name!),
                           subtitle: Text(user.email!),
@@ -47,9 +47,9 @@ class UserList extends StatelessWidget {
         },
       ),
       floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
         onPressed: () {
-          Get.to(PostApi());
+          Get.to(() => const PostApi());
         },
       ),
     );
