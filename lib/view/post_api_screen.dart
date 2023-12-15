@@ -14,14 +14,13 @@ class PostApi extends StatefulWidget {
 }
 
 class _PostApiState extends State<PostApi> {
-  final UserViewModel userViewModel = Get.put(UserViewModel());
+  //final UserViewModel userViewModel = Get.put(UserViewModel());
   final _formKey = GlobalKey<FormState>();
 
   bool isShowPassword = false;
   TextEditingController titleEditingController = TextEditingController();
 
-  TextEditingController descriptionTextEditingController =
-      TextEditingController();
+  TextEditingController descriptionTextEditingController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -80,7 +79,7 @@ class _PostApiState extends State<PostApi> {
                       const Size(double.infinity, 45), //////// HERE
                     ),
                     onPressed: () async {
-                      userViewModel.loading
+                     /* userViewModel.loading
                           ? const Center(
                         child: CircularProgressIndicator(),
                       )
@@ -95,7 +94,7 @@ class _PostApiState extends State<PostApi> {
                       } else {
                         // Handle login failure
                         Get.snackbar('Login Failed', 'Invalid credentials');
-                      }
+                      }*/
 
                     },
                     child: const Text(

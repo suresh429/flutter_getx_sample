@@ -27,4 +27,20 @@ class Validator {
     }
 
   }
+
+  String? validPassword(String password) {
+    if (password.length != 10) {
+      return 'password must be 10 characters';
+    } else {
+      return null;
+    }
+
+  }
+
+  String? descriptionValidator(String value) {
+    if (value.isEmpty || value.length < 10) {
+      return "Enter Description";
+    }
+    return null;
+  }
 }

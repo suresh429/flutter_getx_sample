@@ -5,15 +5,10 @@ import 'package:flutter_getx_sample/mvvm/res/routes/routes.dart';
 import 'package:flutter_getx_sample/view/user_list_screen.dart';
 import 'package:get/get.dart';
 
-import 'data/repositories/user_repository.dart';
-import 'data/services/api_service.dart';
-import 'view_models/user_view_model.dart';
+import 'mvvm/res/routes/routes_name.dart';
+
 
 void main() {
- /* // Initialize GetX dependency injection
-  Get.put(ApiService(dio: Dio())); // ApiService instance
-  Get.put(Repository()); // UserRepository instance
-  Get.put(UserViewModel()); // UserViewModel instance*/
   runApp(const MyApp());
 }
 

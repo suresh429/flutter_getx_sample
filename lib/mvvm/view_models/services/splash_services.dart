@@ -18,10 +18,10 @@ class SplashServices {
 
       if (value.isLogin == false || value.isLogin.toString() == 'null') {
         Timer(
-            const Duration(seconds: 1), () => Get.toNamed(RouteName.loginView));
+            const Duration(seconds: 1), () => Get.offAndToNamed(RouteName.loginView));
       } else {
         Timer(
-            const Duration(seconds: 1), () => Get.toNamed(RouteName.homeView));
+            const Duration(seconds: 1), () => Get.offAndToNamed(RouteName.homeView));
       }
     });
   }

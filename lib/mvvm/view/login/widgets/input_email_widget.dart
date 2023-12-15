@@ -1,6 +1,7 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:flutter_getx_sample/utils/validator.dart';
 import 'package:get/get.dart';
 
 import '../../../utils/utils.dart';
@@ -15,20 +16,19 @@ class InputEmailWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return  TextFormField(
       controller: loginVM.emailController.value,
-      focusNode: loginVM.emailFocusNode.value,
-
-      validator: (value){
-        if(value!.isEmpty){
-          Utils.snackBar('Email', 'Enter email');
-        }
-      },
-      onFieldSubmitted: (value){
+     // focusNode: loginVM.emailFocusNode.value,
+      keyboardType: TextInputType.emailAddress,
+      autovalidateMode: AutovalidateMode.onUserInteraction,
+      validator: (email) => Validator().validEmail(email ?? ""),
+     /* onFieldSubmitted: (value){
         Utils.fieldFocusChange(context, loginVM.emailFocusNode.value, loginVM.passwordFocusNode.value);
-      },
+      },*/
       decoration: InputDecoration(
           hintText: 'email_hint'.tr,
-          border: OutlineInputBorder()
-      ),
+            border: const OutlineInputBorder(),
+            labelText: "Email",
+            //suffixIcon: Icon(Icons.person),
+          ),
     );
   }
 }
