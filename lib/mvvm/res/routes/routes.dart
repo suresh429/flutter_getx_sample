@@ -1,6 +1,6 @@
+import 'package:flutter_getx_sample/mvvm/models/home/scrollview.dart';
 import 'package:flutter_getx_sample/mvvm/res/routes/routes_name.dart';
 import 'package:flutter_getx_sample/mvvm/view/list_view.dart';
-import 'package:flutter_getx_sample/view/post_api_screen.dart';
 import 'package:get/get.dart';
 
 import '../../view/home/home_view.dart';
@@ -29,6 +29,12 @@ class AppRoutes {
     GetPage(
           name: RouteName.listView,
           page: () => const ListView(),
+          transitionDuration: const Duration(milliseconds: 250),
+          transition: Transition.leftToRightWithFade,
+        ),
+    GetPage(
+          name: RouteName.scrollView,
+          page: () => const ScrollView(),
           transitionDuration: const Duration(milliseconds: 250),
           transition: Transition.leftToRightWithFade,
         ),

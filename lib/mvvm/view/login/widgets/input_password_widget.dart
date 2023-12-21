@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_getx_sample/utils/validator.dart';
+import 'package:flutter_getx_sample/mvvm/utils/validator.dart';
 import 'package:get/get.dart';
 
 import '../../../utils/utils.dart';
@@ -14,6 +14,7 @@ class InputPasswordWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Obx(() =>TextFormField(
+
       controller: loginVM.passwordController.value,
       // focusNode: loginVM.passwordFocusNode.value,
      // obscureText: true,

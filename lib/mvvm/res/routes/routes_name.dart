@@ -8,6 +8,7 @@ class RouteName {
   static const String loginView = '/' ;
   static const String homeView = '/home_view' ;
   static const String listView = '/list_view' ;
+  static const String scrollView = '/scroll_view' ;
 
 
 }

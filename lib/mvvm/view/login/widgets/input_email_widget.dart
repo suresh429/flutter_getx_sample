@@ -1,7 +1,7 @@
 
 
 import 'package:flutter/material.dart';
-import 'package:flutter_getx_sample/utils/validator.dart';
+import 'package:flutter_getx_sample/mvvm/utils/validator.dart';
 import 'package:get/get.dart';
 
 import '../../../utils/utils.dart';
@@ -15,6 +15,7 @@ class InputEmailWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  TextFormField(
+
       controller: loginVM.emailController.value,
      // focusNode: loginVM.emailFocusNode.value,
       keyboardType: TextInputType.emailAddress,

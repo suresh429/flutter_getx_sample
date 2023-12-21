@@ -44,10 +44,10 @@ class LoginViewModel extends GetxController {
         userPreference.saveUser(userModel).then((value){
 
           // releasing resouces because we are not going to use this
-          Get.delete<LoginViewModel>();
+
           Get.offAndToNamed(RouteName.homeView)!.then((value){});
           Utils.snackBar('Login', 'Login successfully');
-
+        //  Get.delete<LoginViewModel>();
         }).onError((error, stackTrace){
 
         });

@@ -18,7 +18,7 @@ class SplashServices {
 
       if (value.isLogin == false || value.isLogin.toString() == 'null') {
         Timer(
-            const Duration(seconds: 1), () => Get.offAndToNamed(RouteName.loginView));
+            const Duration(seconds: 1), () => Get.off(RouteName.loginView));
       } else {
         Timer(
             const Duration(seconds: 1), () => Get.offAndToNamed(RouteName.homeView));

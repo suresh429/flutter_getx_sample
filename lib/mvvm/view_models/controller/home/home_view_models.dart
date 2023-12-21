@@ -1,4 +1,5 @@
 
+import 'package:flutter_getx_sample/mvvm/models/home/user_data_entity.dart';
 import 'package:get/get.dart';
 
 import '../../../data/response/status.dart';
@@ -12,11 +13,11 @@ class HomeController extends GetxController {
 
 
   final rxRequestStatus = Status.LOADING.obs ;
-  final userList =UserListModel().obs ;
+  final userList =UserDataEntity().obs ;
   RxString error = ''.obs;
 
   void setRxRequestStatus(Status _value) => rxRequestStatus.value = _value ;
-  void setUserList(UserListModel _value) => userList.value = _value ;
+  void setUserList(UserDataEntity _value) => userList.value = _value ;
   void setError(String _value) => error.value = _value ;
 
 

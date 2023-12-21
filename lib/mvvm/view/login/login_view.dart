@@ -9,11 +9,8 @@ import 'package:flutter_getx_sample/mvvm/view_models/controller/user_preference/
 import 'package:flutter_getx_sample/mvvm/view_models/services/splash_services.dart';
 import 'package:get/get.dart';
 
-
 import '../../data/response/status.dart';
 import '../../view_models/controller/login/login_view_model.dart';
-
-
 
 class LoginView extends StatefulWidget {
   const LoginView({Key? key}) : super(key: key);
@@ -23,49 +20,61 @@ class LoginView extends StatefulWidget {
 }
 
 class _LoginViewState extends State<LoginView> {
+  final loginVM = Get.put(LoginViewModel());
 
-  final loginVM = Get.put(LoginViewModel()) ;
   final _formkey = GlobalKey<FormState>();
 
-  SplashServices splashScreen = SplashServices();
+ // SplashServices splashScreen = SplashServices();
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    splashScreen.isLogin();
-
+    //splashScreen.isLogin();
   }
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
-      appBar: AppBar(
+      /* appBar: AppBar(
         centerTitle: true,
         automaticallyImplyLeading:false,
         title: Text('login'.tr),
-      ),
+      ),*/
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            Padding(
+              padding: const EdgeInsets.all(25.0),
+              child: Image.asset(
+                'assets/airplane.png',
+                height: 80.0,
+                width: 80.0,
+                alignment: Alignment.center,
+              )
+            ),
+
             Form(
               key: _formkey,
               child: Column(
                 children: [
                   InputEmailWidget(),
-                  const SizedBox(height: 20,),
+                  const SizedBox(
+                    height: 20,
+                  ),
                   InputPasswordWidget(),
-
                 ],
               ),
             ),
-
-            const SizedBox(height: 40,),
-            LoginButtonWidget(formKey: _formkey,)
+            const SizedBox(
+              height: 40,
+            ),
+            LoginButtonWidget(
+              formKey: _formkey,
+            )
           ],
         ),
       ),
