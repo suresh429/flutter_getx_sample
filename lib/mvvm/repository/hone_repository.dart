@@ -2,11 +2,9 @@
 
 import 'dart:ui';
 
-import 'package:flutter_getx_sample/mvvm/models/home/user_data_entity.dart';
-
-import '../../data/network/network_api_services.dart';
-import '../../models/home/user_list_model.dart';
-import '../../res/app_url/app_url.dart';
+import 'package:flutter_getx_sample/mvvm/models/user_data_entity.dart';
+import '../data/network/network_api_services.dart';
+import '../res/app_url/app_url.dart';
 
 
 

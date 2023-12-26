@@ -5,7 +5,7 @@ import '../../data/response/status.dart';
 import '../../res/components/general_exception.dart';
 import '../../res/components/internet_exceptions_widget.dart';
 import '../../res/routes/routes_name.dart';
-import '../../view_models/controller/home/home_view_models.dart';
+import '../../view_models/controller/home_view_models.dart';
 import '../../view_models/controller/user_preference/user_prefrence_view_model.dart';
 
 class HomeView extends StatefulWidget {
@@ -38,6 +38,7 @@ class _HomeViewState extends State<HomeView> {
               onPressed: () {
                 userPreference.removeUser().then((value) {
                   Get.offAllNamed(RouteName.loginView);
+                  Get.delete<HomeController>();
                 });
               },
               icon: const Icon(Icons.logout))

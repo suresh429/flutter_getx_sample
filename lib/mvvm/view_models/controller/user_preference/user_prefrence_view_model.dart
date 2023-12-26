@@ -1,8 +1,8 @@
 
-
-import 'package:flutter_getx_sample/mvvm/models/login/user_model.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import '../../../models/user_model.dart';
 
 class UserPreference {
 

@@ -1,16 +1,11 @@
-import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_getx_sample/mvvm/res/routes/routes_name.dart';
 import 'package:flutter_getx_sample/mvvm/view/login/widgets/input_email_widget.dart';
 import 'package:flutter_getx_sample/mvvm/view/login/widgets/input_password_widget.dart';
 import 'package:flutter_getx_sample/mvvm/view/login/widgets/login_button_widget.dart';
-import 'package:flutter_getx_sample/mvvm/view_models/controller/user_preference/user_prefrence_view_model.dart';
-import 'package:flutter_getx_sample/mvvm/view_models/services/splash_services.dart';
 import 'package:get/get.dart';
 
-import '../../data/response/status.dart';
-import '../../view_models/controller/login/login_view_model.dart';
+import '../../view_models/controller/login_view_model.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({Key? key}) : super(key: key);

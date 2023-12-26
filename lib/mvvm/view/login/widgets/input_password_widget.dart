@@ -3,7 +3,7 @@ import 'package:flutter_getx_sample/mvvm/utils/validator.dart';
 import 'package:get/get.dart';
 
 import '../../../utils/utils.dart';
-import '../../../view_models/controller/login/login_view_model.dart';
+import '../../../view_models/controller/login_view_model.dart';
 
 class InputPasswordWidget extends StatelessWidget {
   InputPasswordWidget({Key? key}) : super(key: key);

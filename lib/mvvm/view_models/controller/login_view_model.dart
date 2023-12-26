@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_getx_sample/mvvm/models/login/user_model.dart';
 import 'package:flutter_getx_sample/mvvm/res/routes/routes_name.dart';
 import 'package:flutter_getx_sample/mvvm/utils/utils.dart';
 import 'package:get/get.dart';
 
-import '../../../repository/login_repository/login_repository.dart';
-import '../user_preference/user_prefrence_view_model.dart';
+import '../../models/user_model.dart';
+import '../../repository/login_repository.dart';
+import 'user_preference/user_prefrence_view_model.dart';
 
 
 class LoginViewModel extends GetxController {

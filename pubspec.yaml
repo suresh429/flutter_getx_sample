@@ -41,6 +41,17 @@ dependencies:
   fluttertoast: ^8.2.2
   shared_preferences: ^2.0.17
   http: ^0.13.5
+  flutter_launcher_icons: ^0.13.1
+  introduction_screen: ^3.1.12
+  get_storage: ^2.1.1
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/airplane.png"
+  min_sdk_android: 21 # android min sdk min:16, default 21
+
+
 
 
 

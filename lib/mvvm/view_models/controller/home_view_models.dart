@@ -1,10 +1,9 @@
 
-import 'package:flutter_getx_sample/mvvm/models/home/user_data_entity.dart';
+import 'package:flutter_getx_sample/mvvm/models/user_data_entity.dart';
 import 'package:get/get.dart';
 
-import '../../../data/response/status.dart';
-import '../../../models/home/user_list_model.dart';
-import '../../../repository/home_repository/hone_repository.dart';
+import '../../data/response/status.dart';
+import '../../repository/hone_repository.dart';
 
 
 class HomeController extends GetxController {

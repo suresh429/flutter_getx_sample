@@ -1,5 +1,5 @@
 import 'package:flutter_getx_sample/generated/json/base/json_convert_content.dart';
-import 'package:flutter_getx_sample/mvvm/models/home/user_data_entity.dart';
+import 'package:flutter_getx_sample/mvvm/models/user_data_entity.dart';
 
 UserDataEntity $UserDataEntityFromJson(Map<String, dynamic> json) {
   final UserDataEntity userDataEntity = UserDataEntity();

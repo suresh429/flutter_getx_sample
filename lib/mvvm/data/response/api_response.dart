@@ -1,6 +1,4 @@
 
-
-
 import 'package:flutter_getx_sample/mvvm/data/response/status.dart';
 
 class ApiResponse<T> {

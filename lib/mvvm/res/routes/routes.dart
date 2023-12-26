@@ -1,6 +1,7 @@
-import 'package:flutter_getx_sample/mvvm/models/home/scrollview.dart';
+import 'package:flutter_getx_sample/mvvm/models/scrollview.dart';
 import 'package:flutter_getx_sample/mvvm/res/routes/routes_name.dart';
 import 'package:flutter_getx_sample/mvvm/view/list_view.dart';
+import 'package:flutter_getx_sample/mvvm/view/on_board_screens.dart';
 import 'package:get/get.dart';
 
 import '../../view/home/home_view.dart';
@@ -8,12 +9,12 @@ import '../../view/login/login_view.dart';
 
 class AppRoutes {
   static appRoutes() => [
-       /* GetPage(
-          name: RouteName.splashScreen,
-          page: () => const SplashScreen(),
-          transitionDuration: Duration(milliseconds: 250),
+        GetPage(
+          name: RouteName.onBoardView,
+          page: () => const OnBoardScreens(),
+          transitionDuration: const Duration(milliseconds: 250),
           transition: Transition.leftToRightWithFade,
-        ),*/
+        ),
         GetPage(
           name: RouteName.loginView,
           page: () => const LoginView(),
