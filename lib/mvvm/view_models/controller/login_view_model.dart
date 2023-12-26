@@ -45,7 +45,7 @@ class LoginViewModel extends GetxController {
 
           // releasing resouces because we are not going to use this
 
-          Get.offAndToNamed(RouteName.homeView)!.then((value){});
+          Get.offAndToNamed(RouteName.mainView)!.then((value){});
           Utils.snackBar('Login', 'Login successfully');
           Get.delete<LoginViewModel>();
         }).onError((error, stackTrace){

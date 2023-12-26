@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_getx_sample/mvvm/res/getx_loclization/languages.dart';
 import 'package:flutter_getx_sample/mvvm/res/routes/routes.dart';
+import 'package:flutter_getx_sample/mvvm/view/main_screen.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
@@ -44,7 +45,7 @@ Widget buildApp(bool isLoggedIn, GetStorage box) {
     ),
    // initialRoute: RouteName.loginView,
     getPages: AppRoutes.appRoutes(),
-    home: isLoggedIn ? const HomeView() :  isOnBoard ? const LoginView() :  const OnBoardScreens(),
+    home: isLoggedIn ? const MainScreen() :  isOnBoard ? const LoginView() :  const OnBoardScreens(),
   );
 }
 

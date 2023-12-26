@@ -47,7 +47,15 @@ class _HomeViewState extends State<HomeView> {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           //Get.toNamed(RouteName.scrollView);
-          Get.snackbar("title", "message");
+          Get.showSnackbar(
+            const GetSnackBar(
+            //  title: "title",
+              message: 'Snack bar Successfully',
+             // icon: Icon(Icons.refresh),
+              duration: Duration(seconds: 3),
+            ),
+          );
+         // Get.snackbar("title", "message");
           Get.defaultDialog(title: "Alert", middleText: "middle text");
           Get.bottomSheet(
             Container(
