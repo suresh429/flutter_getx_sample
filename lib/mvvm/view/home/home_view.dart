@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_getx_sample/mvvm/models/user_data_entity.dart';
 import 'package:get/get.dart';
 
 import '../../data/response/status.dart';
 import '../../res/components/general_exception.dart';
 import '../../res/components/internet_exceptions_widget.dart';
-import '../../res/routes/routes_name.dart';
 import '../../view_models/controller/home_view_models.dart';
 import '../../view_models/controller/user_preference/user_prefrence_view_model.dart';
 
@@ -30,69 +30,6 @@ class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Home"),
-        automaticallyImplyLeading: false,
-        actions: [
-          IconButton(
-              onPressed: () {
-                userPreference.removeUser().then((value) {
-                  Get.offAllNamed(RouteName.loginView);
-                  Get.delete<HomeController>();
-                });
-              },
-              icon: const Icon(Icons.logout))
-        ],
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          //Get.toNamed(RouteName.scrollView);
-          Get.showSnackbar(
-            const GetSnackBar(
-            //  title: "title",
-              message: 'Snack bar Successfully',
-             // icon: Icon(Icons.refresh),
-              duration: Duration(seconds: 3),
-            ),
-          );
-         // Get.snackbar("title", "message");
-          Get.defaultDialog(title: "Alert", middleText: "middle text");
-          Get.bottomSheet(
-            Container(
-                height: 250,
-                color: Colors.white,
-                child: SingleChildScrollView(
-                  child: Column(
-                    children: [
-                      const Padding(
-                        padding: EdgeInsets.all(8.0),
-                        child: Text('Hi 1', textScaleFactor: 2),
-                      ),
-                      const Padding(
-                        padding: EdgeInsets.all(8.0),
-                        child: Text('Hi 2', textScaleFactor: 2),
-                      ),
-                      const Padding(
-                        padding: EdgeInsets.all(8.0),
-                        child: Text('Hi 3', textScaleFactor: 2),
-                      ),
-                      const Padding(
-                        padding: EdgeInsets.all(8.0),
-                        child: Text('Hi 4', textScaleFactor: 2),
-                      ),
-                      ElevatedButton(
-                        onPressed: () {
-                          Get.back(closeOverlays: true);
-                        },
-                        child: const Text('Submit'),
-                      )
-                    ],
-                  ),
-                )),
-          );
-        },
-        child: const Icon(Icons.add),
-      ),
       body: Obx(() {
         switch (homeController.rxRequestStatus.value) {
           case Status.LOADING:
@@ -122,24 +59,91 @@ class _HomeViewState extends State<HomeView> {
 
   ListView buildListView() {
     return ListView.builder(
-                itemCount: homeController.userList.value.data!.length,
-                itemBuilder: (context, index) {
-                  return Card(
-                    child: ListTile(
-                      onTap: () {},
-                      leading: CircleAvatar(
-                        backgroundImage: NetworkImage(homeController
-                            .userList.value.data![index].avatar
-                            .toString()),
-                      ),
-                      title: Text(homeController
-                          .userList.value.data![index].firstName
-                          .toString()),
-                      subtitle: Text(homeController
-                          .userList.value.data![index].email
-                          .toString()),
+        itemCount: homeController.userList.value.data!.length,
+        itemBuilder: (context, index) {
+          return Card(
+            child: ListTile(
+              onTap: () {
+                openBottomSheet(homeController.userList.value.data![index]);
+              },
+              leading: CircleAvatar(
+                backgroundImage: NetworkImage(homeController
+                    .userList.value.data![index].avatar
+                    .toString()),
+              ),
+              title: Text(homeController.userList.value.data![index].firstName
+                  .toString()),
+              subtitle: Text(
+                  homeController.userList.value.data![index].email.toString()),
+            ),
+          );
+        });
+  }
+
+  void openBottomSheet(UserDataData userDataData) {
+    Get.bottomSheet(
+      SingleChildScrollView(
+        child: Container(
+          decoration: const BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(15),
+              topRight: Radius.circular(15),
+            ),
+          ),
+          child: SafeArea(
+            child: Padding(
+              padding: const EdgeInsets.all(15.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Container(
+                    //color: Colors.grey,
+                    decoration: const BoxDecoration(
+                      //color:Colors.grey ,
+                        color: Colors.grey,
+                        borderRadius: BorderRadius.all(Radius.circular(3))
                     ),
-                  );
-                });
+                    height: 2.5,
+                    width: 55.0,
+                  ),
+                  const SizedBox(
+                    height: 20.0,
+                  ),
+                  CircleAvatar(
+                    backgroundImage: NetworkImage(
+                      userDataData.avatar.toString(),
+                    ),
+                    radius: 50,
+                  ),
+                  const SizedBox(
+                    height: 10.0,
+                  ),
+                  Text(
+                    userDataData.firstName.toString(),
+                    style: const TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18.0,
+                        color: Colors.deepPurple),
+                  ),
+                  const SizedBox(
+                    height: 5.0,
+                  ),
+                  Text(userDataData.email.toString()),
+                  const SizedBox(
+                    height: 15.0,
+                  ),
+                  const Text(
+                    "The bottom navigation bar consists of multiple items in the form of text labels, icons, or both, laid out on top of a piece of material. It provides quick navigation between the top-level views of an app. For larger screens, side navigation may be a better fit. \n The bottom navigation bar consists of multiple items in the form of text labels, icons, or both, laid out on top of a piece of material. It provides quick navigation between the top-level views of an app. For larger screens, side navigation may be a better fit.",
+                    style: TextStyle(color: Colors.grey),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ),
+      isScrollControlled: true,
+    );
   }
 }
