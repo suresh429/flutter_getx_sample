@@ -6,5 +6,4 @@ class AppUrl {
   static const String loginApi = '$baseUrl/login' ;
   static const String userListApi = '$baseUrl/users?page=2';
 
-
 }

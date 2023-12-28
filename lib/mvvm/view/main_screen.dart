@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_getx_sample/mvvm/utils/utils.dart';
 import 'package:flutter_getx_sample/mvvm/view/dashboard_screen.dart';
 import 'package:flutter_getx_sample/mvvm/view/home/home_view.dart';
 import 'package:get/get.dart';
@@ -27,8 +28,8 @@ class _MainScreenState extends State<MainScreen> {
   buildBottomNavigationMenu(context, landingPageController) {
     return Obx(() => MediaQuery(
         data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
-        child: SizedBox(
-          height: 54,
+        child: SafeArea(
+          bottom: false,
           child: BottomNavigationBar(
             type: BottomNavigationBarType.fixed,
             showUnselectedLabels: true,
@@ -107,50 +108,18 @@ class _MainScreenState extends State<MainScreen> {
           IconButton(
               onPressed: () {
                 openDialog(userPreference);
+
               },
               icon: const Icon(Icons.logout))
         ],
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Get.bottomSheet(
-            Container(
-                height: 250,
-                color: Colors.white,
-                child: SingleChildScrollView(
-                  child: Column(
-                    children: [
-                      const Padding(
-                        padding: EdgeInsets.all(8.0),
-                        child: Text('Hi 1', textScaleFactor: 2),
-                      ),
-                      const Padding(
-                        padding: EdgeInsets.all(8.0),
-                        child: Text('Hi 2', textScaleFactor: 2),
-                      ),
-                      const Padding(
-                        padding: EdgeInsets.all(8.0),
-                        child: Text('Hi 3', textScaleFactor: 2),
-                      ),
-                      const Padding(
-                        padding: EdgeInsets.all(8.0),
-                        child: Text('Hi 4', textScaleFactor: 2),
-                      ),
-                      ElevatedButton(
-                        onPressed: () {
-                          Get.back(closeOverlays: true);
-                        },
-                        child: const Text('Submit'),
-                      )
-                    ],
-                  ),
-                )),
-          );
+          Utils.snackBar("title", "message");
+
         },
         child: const Icon(Icons.add),
       ),
-      bottomNavigationBar:
-          buildBottomNavigationMenu(context, landingPageController),
       body: Obx(() => IndexedStack(
             index: landingPageController.tabIndex.value,
             children: const [
@@ -160,6 +129,7 @@ class _MainScreenState extends State<MainScreen> {
               DashBoardScreen(),
             ],
           )),
+      bottomNavigationBar: buildBottomNavigationMenu(context, landingPageController),
     );
   }
 
