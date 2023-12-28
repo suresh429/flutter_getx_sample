@@ -26,69 +26,67 @@ class _MainScreenState extends State<MainScreen> {
       color: Colors.white, fontWeight: FontWeight.w500, fontSize: 12);
 
   buildBottomNavigationMenu(context, landingPageController) {
-    return Obx(() => MediaQuery(
-        data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
-        child: SafeArea(
-          bottom: false,
-          child: BottomNavigationBar(
-            type: BottomNavigationBarType.fixed,
-            showUnselectedLabels: true,
-            showSelectedLabels: true,
-            onTap: landingPageController.changeTabIndex,
-            currentIndex: landingPageController.tabIndex.value,
+    return Obx(() => SafeArea(
+      bottom: false,
+      child: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        showUnselectedLabels: true,
+        showSelectedLabels: true,
+        onTap: landingPageController.changeTabIndex,
+        currentIndex: landingPageController.tabIndex.value,
+        backgroundColor: Colors.deepPurple,
+        unselectedItemColor: Colors.white.withOpacity(0.5),
+        selectedItemColor: Colors.white,
+        unselectedLabelStyle: unselectedLabelStyle,
+        selectedLabelStyle: selectedLabelStyle,
+        items: [
+          BottomNavigationBarItem(
+            icon: Container(
+              margin: const EdgeInsets.only(bottom: 7),
+              child: const Icon(
+                Icons.home,
+                size: 20.0,
+              ),
+            ),
+            label: 'Home',
             backgroundColor: Colors.deepPurple,
-            unselectedItemColor: Colors.white.withOpacity(0.5),
-            selectedItemColor: Colors.white,
-            unselectedLabelStyle: unselectedLabelStyle,
-            selectedLabelStyle: selectedLabelStyle,
-            items: [
-              BottomNavigationBarItem(
-                icon: Container(
-                  margin: const EdgeInsets.only(bottom: 7),
-                  child: const Icon(
-                    Icons.home,
-                    size: 20.0,
-                  ),
-                ),
-                label: 'Home',
-                backgroundColor: Colors.deepPurple,
-              ),
-              BottomNavigationBarItem(
-                icon: Container(
-                  margin: const EdgeInsets.only(bottom: 7),
-                  child: const Icon(
-                    Icons.search,
-                    size: 20.0,
-                  ),
-                ),
-                label: 'Explore',
-                backgroundColor: Colors.deepPurple,
-              ),
-              BottomNavigationBarItem(
-                icon: Container(
-                  margin: const EdgeInsets.only(bottom: 7),
-                  child: const Icon(
-                    Icons.location_history,
-                    size: 20.0,
-                  ),
-                ),
-                label: 'Places',
-                backgroundColor: Colors.deepPurple,
-              ),
-              BottomNavigationBarItem(
-                icon: Container(
-                  margin: const EdgeInsets.only(bottom: 7),
-                  child: const Icon(
-                    Icons.settings,
-                    size: 20.0,
-                  ),
-                ),
-                label: 'Settings',
-                backgroundColor: Colors.deepPurple,
-              ),
-            ],
           ),
-        )));
+          BottomNavigationBarItem(
+            icon: Container(
+              margin: const EdgeInsets.only(bottom: 7),
+              child: const Icon(
+                Icons.search,
+                size: 20.0,
+              ),
+            ),
+            label: 'Explore',
+            backgroundColor: Colors.deepPurple,
+          ),
+          BottomNavigationBarItem(
+            icon: Container(
+              margin: const EdgeInsets.only(bottom: 7),
+              child: const Icon(
+                Icons.location_history,
+                size: 20.0,
+              ),
+            ),
+            label: 'Places',
+            backgroundColor: Colors.deepPurple,
+          ),
+          BottomNavigationBarItem(
+            icon: Container(
+              margin: const EdgeInsets.only(bottom: 7),
+              child: const Icon(
+                Icons.settings,
+                size: 20.0,
+              ),
+            ),
+            label: 'Settings',
+            backgroundColor: Colors.deepPurple,
+          ),
+        ],
+      ),
+    ));
   }
 
   @override
